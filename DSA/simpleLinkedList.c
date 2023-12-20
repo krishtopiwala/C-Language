@@ -54,6 +54,28 @@ void deleteEnd()
     return;
 }
 
+void insertFirst(int val)
+{
+    struct node *ptr = head;
+    struct node *temp = malloc(sizeof(struct node));
+    temp->data = val;
+    temp->next = ptr;
+    head = temp;
+}
+
+void deleteFirst()
+{
+    struct node *ptr = head;
+    if (head == NULL)
+    {
+        printf("List is empty\n");
+    }
+    else
+    {
+        head = head->next;
+    }
+}
+
 void display()
 {
     struct node *ptr = head;
@@ -74,9 +96,16 @@ void display()
 
 int main()
 {
+    insertFirst(5);
     insertEnd(10);
     insertEnd(20);
     insertEnd(30);
+    insertFirst(1);
+    insertEnd(40);
+    display();
+    deleteEnd();
+    display();
+    deleteFirst();
     display();
     return 0;
 }
